@@ -11,12 +11,17 @@ public class Traversal {
     root.left = new TreeNode(-3);
     root.right.right = new TreeNode(5);
     root.right.right.right = new TreeNode(22);
+    preOrder(root);
   }
   public static void preOrder(TreeNode current){
     // null return ,print our data, search left, search right
 
-    if(current == null){
-      return;
-    }
+    if(current == null) return;
+
+    System.out.println(current.data);
+    // search the left side
+    preOrder(current.left);
+    preOrder(current.right );
+    
   }
 }

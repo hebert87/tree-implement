@@ -16,6 +16,7 @@ public class Traversal {
     //preOrder(root);
     int results = sum(root);
     System.out.println(results);
+    System.err.println(oddSum(root));
   }
   public static void preOrder(TreeNode current){
     // null return ,print our data, search left, search right
@@ -40,5 +41,16 @@ public class Traversal {
     total+=sum(node.right);
     return total;
 
+  }
+  public static int oddSum(TreeNode node) {
+      if (node == null) return 0;
+      int total =0;
+
+      if (node.data % 2 != 0) {
+          total+= node.data;
+      }
+      total += oddSum(node.left);
+      total += oddSum(node.right);
+      return total;
   }
 }
